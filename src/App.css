@@ -1,0 +1,391 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+#cycle-video-btn {
+    display: none;
+}
+
+#audio-meter {
+    display: none;
+}
+
+#audio-meter meter {
+    width: 200px;
+}
+
+form {
+    border: 1px solid #F4F4F4;
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+}
+
+form label {
+    margin: 5px;
+    display: inline-block;
+    text-align: right;
+    width: 100px;
+}
+
+form select {
+    width: 200px;
+}
+
+form button {
+    margin: 10px;
+    width: 100px;
+}
+
+#publisher {
+    margin: 10px;
+    padding: 0px;
+    left: 0px;
+    /* left: calc(250px - 192px); */
+}
+
+.App-header {
+    background-color: #222;
+    height: 50px;
+    color: #F4F4F4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.App-header h1 {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.App-logo {
+    height: 100%;
+    width: auto;
+}
+
+.App-main {
+    position: static;
+    width: 100vw;
+    height: calc(100vw * .504);
+    ;
+    margin: 0px auto;
+    border: 0px solid rgb(76, 192, 231);
+}
+
+.App-control-container {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    bottom: 0px;
+    /* justify-content: center; */
+    /* position: left;
+    bottom: 2%;
+    left: 2%;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid #fcba00;*/
+    z-index: 2;
+
+
+}
+
+.App-control-container.hidden {
+    display: none;
+}
+
+.App-control-container .ots-video-control {
+    width: 55px;
+    height: 55px;
+    margin: 10px 5px !important;
+    border: 1px solid #F4F4F4;
+    border-radius: 50%;
+    background-position: center;
+    /* background-color: rgba(27, 134, 144, 0.4); */
+    background-color: lightgrey;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.App-video-container .video-container.small.left {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    bottom: 20px;
+    left: 0px !important;
+    top: 0px !important;
+}
+.App-control-container .ots-video-control.audio {
+    background-image: url(./assets/round_volume_up_black_36dp.png);
+    background-color: #F4F4F4;
+}
+
+.App-control-container .ots-video-control.share-screen {
+    background-image: url(./assets/outline_screen_share_black_36dp.png);
+    background-color: #F4F4F4;
+}
+
+.App-control-container .ots-video-control.share-screen {
+    background-image: url(./assets/outline_screen_share_black_36dp.png);
+    background-color: #F4F4F4;
+}
+
+.App-control-container .ots-camera-control.front {
+    background-color: #F4F4F4;
+    background-image: url(./assets/round_swap_horizontal_circle_black_24dp.png);
+}
+
+.App-control-container .ots-camera-control.back {
+    background-color: #F4F4F4;
+    background-image: url(./assets/round_swap_horizontal_circle_black_24dp.png);
+}
+
+.App-control-container .ots-video-control.text-chat.enabled {
+    background-image: url(./assets/round_chat_black_36dp.png);
+    background-color: #F4F4F4;
+}
+
+
+.App-control-container .ots-video-control.text-chat.disabled {
+    background-image: url(./assets/round_chat_black_36dp.png);
+    background-color: red;
+}
+
+.App-control-container .ots-video-control.audio:hover {
+    background-image: url(./assets/round_mic_black_36dp.png);
+    background-color: #F4F4F4;
+}
+
+.App-control-container .ots-video-control.audio.muted {
+    background-image: url(./assets/round_mic_off_black_36dp.png);
+    background-color: gray;
+}
+
+.App-control-container .ots-video-control.video {
+    background-image: url(./assets/round_videocam_black_36dp.png);
+    background-color: #F4F4F4;
+}
+
+.App-control-container .ots-video-control.video.muted {
+    background-image: url(./assets/round_videocam_off_black_36dp.png);
+    background-color: gray;
+}
+
+.App-control-container .ots-video-control.end-call {
+    background-image: url(./assets/round_call_end_black_36dp.png);
+    background-color: red;
+}
+
+
+.App-video-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.ots-text-chat {
+    align-items: bottom;
+    position: relative;
+    margin-top: 0px;
+
+    background: #F4F4F4;
+    font-family: helvetica, arial, sans-serif;
+    color: #343c3e;
+    font-weight: normal;
+
+}
+
+.ots-text-chat .ots-messages-holder {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: calc(100vh * .93) !important;
+    width: calc(100vw * .17);
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.ots-text-chat .ots-send-message-box {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #c6c6c6;
+    padding-right: 70px;
+}
+
+.ots-text-chat .ots-send-message-box button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 40px;
+    background-color: #F4F4F4;
+    border-left: 1px solid #c6c6c6;
+    outline: 0;
+    border: 0;
+    border-left: 1px solid #c6c6c6;
+}
+
+.ots-text-chat .ots-send-message-box input[type="text"],
+.ots-text-chat .ots-send-message-box textarea {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: 0;
+    padding: 10px 10px 0;
+    font-size: 16px;
+    resize: yes;
+}
+
+.ots-text-chat .ots-send-message-box input[type="text"],
+.ots-text-chat .ots-send-message-box textarea {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: 0;
+    padding: 10px 10px 0;
+    font-size: 16px;
+    resize: none;
+}
+
+.ots-icon-check {
+    background-image: url(./assets/round_send_black_36dp.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+
+.App-mask {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: #F4F4F4;
+    background: #FDAB3D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* align-items: left; */
+}
+
+.App-mask .react-spinner {
+    position: absolute;
+}
+
+.App-mask .message {
+    font-weight: 100;
+}
+
+.App-mask .message.with-spinner {
+    position: absolute;
+    top: 55%;
+}
+
+.message-with-spinner {
+    position: absolute;
+    top: 55%;
+}
+
+
+.App-mask .message.button {
+    border: 2px solid #F4F4F4;
+    padding: 30px 80px;
+    border-radius: 10px;
+    background-color: Transparent;
+    color: #F4F4F4;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+
+.App-mask .message.button:focus:active,
+.message.button:focus,
+.message.button:active {
+    background-image: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.App-video-container .video-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+
+.App-video-container .video-container.small {
+    /* position:absolute; */
+    top: 2%;
+    left: 2%;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid #fcba00; */
+    z-index: 2;
+}
+
+.App-video-container .video-container.small.left {
+    /* left: 20px;
+    border: 1px solid #00fcc2; */
+}
+#screenPublisherContainer{
+    position: relative;
+    height: 50%;
+    overflow: hidden;
+    bottom: -450px;
+}
+.App-video-container .video-container.hidden {
+    display: none;
+}
+
+.App-video-container .video-container.active-gt2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+}
+
+.App-video-container .video-container.active-gt2.hidden {
+    display: none;
+}
+
+.App-video-container .video-container.active-gt2 .OT_subscriber {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 0;
+    flex-basis: 50%;
+    box-sizing: border-box;
+    width: auto !important;
+    height: auto !important;
+}
+
+.App-video-container .video-container.active-gt2.active-odd .OT_subscriber:first-child {
+    flex-basis: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+    #screenPublisherContainer {
+        position: relative;
+        height: 50%;
+        overflow: hidden;
+        bottom: -384px;
+    }
+    .ots-text-chat .ots-messages-holder{
+        height: calc(100vh * .93) !important;
+    }
+  }
+
