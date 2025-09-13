@@ -11,7 +11,7 @@
     "opentok-accelerator-core": "^2.0.15",
     "opentok-annotation": "*",
     "opentok-archiving": "*",
-    "opentok-network-test-js": "^2.0.1",
+    "opentok-network-test-js": "^3.1.6",
     "opentok-screen-sharing": ">=1.0.28",
     "opentok-solutions-css": "*",
     "opentok-text-chat": "*",
