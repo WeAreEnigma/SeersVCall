@@ -17,7 +17,7 @@
     "opentok-text-chat": "*",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-spinner": "^0.2.6"
   },
   "scripts": {
@@ -61,6 +61,6 @@
     "mocha": "^6.1.4",
     "nodemon": "^1.19.0",
     "prettier": "1.17.1",
-    "prettier-eslint": "^8.8.2"
+    "prettier-eslint": "^16.4.2"
   }
 }
